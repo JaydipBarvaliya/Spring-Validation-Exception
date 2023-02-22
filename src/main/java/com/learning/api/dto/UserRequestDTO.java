@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(staticName = "build")
 public class UserRequestDTO {
 
-
     private String name;
     private String email;
     private String mobile;

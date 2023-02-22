@@ -32,6 +32,9 @@ public class UserService {
 
 
     public User getUserById(int id) throws UserNotFoundException {
+
+
+
         User user = userRepository.findByUserId(id);
 
         if (user != null) return user;

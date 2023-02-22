@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "USER_TBL")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -35,6 +35,4 @@ public class User {
     private int age;
     @NotBlank
     private String nationality;
-
-
 }

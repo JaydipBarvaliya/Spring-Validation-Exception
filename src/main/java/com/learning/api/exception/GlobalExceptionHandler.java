@@ -20,11 +20,12 @@ public class GlobalExceptionHandler extends Exception {
 
         Map<String, String> errorMap = new HashMap<>();
         errorMap.put("errorMessage", ex.getMessage());
+
         return errorMap;
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ConstraintViolationException.class)
+    @ExceptionHandler({ConstraintViolationException.class})
     public Map<String, String> handleConstraintViolation(ConstraintViolationException ex) {
 
         Map<String, String> errorMap = new HashMap<>();
@@ -34,5 +35,9 @@ public class GlobalExceptionHandler extends Exception {
         );
         return errorMap;
     }
+
+
+
+
 
 }
