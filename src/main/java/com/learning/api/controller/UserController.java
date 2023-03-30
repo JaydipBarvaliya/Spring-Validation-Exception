@@ -7,7 +7,6 @@ import com.learning.api.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping(value = "/signup")
     public ResponseEntity<User> signUp(@RequestBody @Valid UserRequestDTO userRequestDTO) {
         return new ResponseEntity<>(this.userService.saveUser(userRequestDTO), HttpStatus.CREATED);
     }
