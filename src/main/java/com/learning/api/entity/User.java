@@ -1,5 +1,6 @@
 package com.learning.api.entity;
 
+import com.learning.api.validation.NationalityCheck;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -33,6 +34,8 @@ public class User {
     @Min(18)
     @Max(60)
     private int age;
-    @NotBlank
+
+    @NationalityCheck
+    @NotNull
     private String nationality;
 }

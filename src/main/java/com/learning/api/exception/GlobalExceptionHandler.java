@@ -30,14 +30,11 @@ public class GlobalExceptionHandler extends Exception {
 
         Map<String, String> errorMap = new HashMap<>();
 
-        ex.getConstraintViolations().stream().forEach(constraintViolation ->
-                errorMap.put(constraintViolation.getPropertyPath().toString(), constraintViolation.getMessage())
+        ex.getConstraintViolations()
+                .stream()
+                .forEach(constraintViolation -> errorMap.put(constraintViolation.getPropertyPath().toString(), constraintViolation.getMessage())
         );
         return errorMap;
     }
-
-
-
-
 
 }

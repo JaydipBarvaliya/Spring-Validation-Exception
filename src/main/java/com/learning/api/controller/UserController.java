@@ -4,7 +4,6 @@ import com.learning.api.dto.UserRequestDTO;
 import com.learning.api.entity.User;
 import com.learning.api.exception.UserNotFoundException;
 import com.learning.api.service.UserService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +21,10 @@ public class UserController {
     }
 
     @PostMapping(value = "/signup")
-    public ResponseEntity<User> signUp(@RequestBody @Valid UserRequestDTO userRequestDTO) {
+    public ResponseEntity<User> signUp(@RequestBody UserRequestDTO userRequestDTO) {
         return new ResponseEntity<>(this.userService.saveUser(userRequestDTO), HttpStatus.CREATED);
     }
+
 
     @GetMapping("/fetchAll")
     public ResponseEntity<List<User>> getAllUsers() {
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getByUserId(@PathVariable int id) throws UserNotFoundException {
+    public ResponseEntity<User> getByUserId( @PathVariable int id) throws UserNotFoundException {
         return ResponseEntity.ok(this.userService.getUserById(id));
     }
 }
